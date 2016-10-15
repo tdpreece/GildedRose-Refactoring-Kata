@@ -4,6 +4,8 @@ import pickle
 # How to see which item in outputs didnt't match?
 # Display associated input with output failures.
 # Make it so you can't record and approve at same time (this will always pass)
+#   Could do by refactoring into a class that is initialised with info needed
+#   then call one method which is passed a parameter: record.
 # Will probably want to extract list comparison tool so can use it to write the
 #   custom assertion that goes in.
 # Efficiently handle very long lists of inputs
@@ -24,7 +26,7 @@ def record(func, inputs, file_prefix='an_approval_test'):
         pickle.dump(outputs, expected_outputs_file)
 
 
-def approve(func, comp, file_prefix='an_approval_test'):
+def verify(func, comp, file_prefix='an_approval_test'):
     inputs_filename = '{}_inputs.pickle'.format(file_prefix)
     with open(inputs_filename, 'r') as inputs_file:
         inputs = pickle.load(inputs_file)

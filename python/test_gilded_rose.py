@@ -13,7 +13,7 @@ class GildedRoseTest(unittest.TestCase):
         # anticipates dealing with a function with a large number
         # of inputs.
         # approvals.record(get_updated_items, [items])
-        approvals.approve(get_updated_items, item_equal)
+        approvals.verify(get_updated_items, item_equal)
 
 
 def item_equal(items_1, items_2):
