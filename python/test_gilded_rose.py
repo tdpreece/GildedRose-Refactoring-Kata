@@ -2,7 +2,7 @@
 from copy import deepcopy
 import unittest
 
-import approvals
+from approvals import ApprovalTest
 from gilded_rose import Item, GildedRose
 
 
@@ -12,8 +12,9 @@ class GildedRoseTest(unittest.TestCase):
         # need to wrap items in another list becuase approvals
         # anticipates dealing with a function with a large number
         # of inputs.
-        # approvals.record(get_updated_items, [items])
-        approvals.verify(get_updated_items, item_equal)
+        approval_test = ApprovalTest(get_updated_items, item_equal)
+        approval_test.record([items])
+        approval_test.verify()
 
 
 def item_equal(items_1, items_2):
