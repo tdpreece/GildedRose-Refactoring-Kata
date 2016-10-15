@@ -3,14 +3,9 @@ import pickle
 # TODO:
 # How to see which item in outputs didnt't match?
 # Display associated input with output failures.
-# Make it so you can't record and approve at same time (this will always pass)
-#   Could do by refactoring into a class that is initialised with info needed
-#   then call one method which is passed a parameter: record.
 # Will probably want to extract list comparison tool so can use it to write the
 #   custom assertion that goes in.
 # Efficiently handle very long lists of inputs
-# Create class and extract file names and func,
-#   file_prefix and func can be passed into ctor
 
 
 class ApprovalTest(object):
